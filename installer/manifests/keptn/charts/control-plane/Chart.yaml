@@ -33,6 +33,4 @@ dependencies:
     repository: https://nats-io.github.io/k8s/helm/charts/
   - name: common
     repository: https://charts-dev.keptn.sh
-    tags:
-      - keptn-common
     version: 0.15.0-dev-PR-7529
