@@ -43,7 +43,7 @@ COMMON_CHART_BASE_PATH=installer/manifests/common
 
 helm package ${COMMON_CHART_BASE_PATH} --app-version "$IMAGE_TAG" --version "$VERSION"
 if [ $? -ne 0 ]; then
-  echo "Error packaging installer, exiting..."
+  echo "Error packaging common chart, exiting..."
   exit 1
 fi
 
