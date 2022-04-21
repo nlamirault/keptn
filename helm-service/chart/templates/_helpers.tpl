@@ -21,7 +21,6 @@ Create chart name and version as used by the chart label.
 {{- include "common.names.chart" . -}}
 {{- end }}
 
-
 {{/*
 Create the name of the service account to use
 */}}
