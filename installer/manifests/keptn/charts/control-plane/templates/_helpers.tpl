@@ -190,13 +190,13 @@ securityContext:
 {{- end -}}
 
 {{- define "control-plane.common.pod-security-context" -}}
-{{- if (.Values.common).podSecurityContext -}}
-{{- if .Values.common.podSecurityContext.enabled -}}
+{{- if .Values.podSecurityContext -}}
+{{- if .Values.podSecurityContext.enabled -}}
 securityContext:
-{{- range $key, $value := omit .Values.common.podSecurityContext "enabled" "defaultSeccompProfile" }}
+{{- range $key, $value := omit .Values.podSecurityContext "enabled" "defaultSeccompProfile" }}
   {{ $key }}: {{- toYaml $value | nindent 4 }}
 {{- end -}}
-{{- if not .Values.common.podSecurityContext.seccompProfile -}}
+{{- if not .Values.podSecurityContext.seccompProfile -}}
 {{- if .Values.apiGatewayNginx.podSecurityContext.defaultSeccompProfile -}}
 {{- include "control-plane.common.security-context-seccomp" . -}}
 {{- end -}}
@@ -210,10 +210,10 @@ securityContext:
 {{- end -}}
 
 {{- define "control-plane.common.container-security-context" -}}
-{{- if (.Values.common).containerSecurityContext -}}
-{{- if .Values.common.containerSecurityContext.enabled -}}
+{{- if (.Values).containerSecurityContext -}}
+{{- if .Values.containerSecurityContext.enabled -}}
 securityContext:
-{{- range $key, $value := omit .Values.common.containerSecurityContext "enabled" }}
+{{- range $key, $value := omit .Values.containerSecurityContext "enabled" }}
   {{ $key }}: {{- toYaml $value | nindent 4 }}
 {{- end -}}
 {{- end -}}
@@ -226,5 +226,3 @@ securityContext:
   privileged: false
 {{- end -}}
 {{- end -}}
-
-

@@ -244,16 +244,15 @@ logLevel: "info"
 
 gracePeriod: 40
 
-common:
-  podSecurityContext:
-    enabled: true
-    defaultSeccompProfile: true
-    fsGroup: 65532
-  containerSecurityContext:
-    enabled: true
-    runAsNonRoot: true
-    runAsUser: 65532
-    readOnlyRootFilesystem: true
-    allowPrivilegeEscalation: false
-    privileged: false
-  nodeSelector: {}
+podSecurityContext:
+  enabled: true
+  defaultSeccompProfile: true
+  fsGroup: 65532
+containerSecurityContext:
+  enabled: true
+  runAsNonRoot: true
+  runAsUser: 65532
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  privileged: false
+nodeSelector: {}
