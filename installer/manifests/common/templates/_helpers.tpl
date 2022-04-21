@@ -1,16 +1,5 @@
 {{/* vim: set filetype=mustache: */}}
 
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "control-plane.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "control-plane.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
-
 {{- define "control-plane.gracePeriod" -}}
       terminationGracePeriodSeconds: 50
 {{- end }}
@@ -219,31 +208,3 @@ securityContext:
   privileged: false
 {{- end -}}
 {{- end -}}
-
-
-{{/***********************************************************************/}}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "helm-service.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "helm-service.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
-
-
-{{/***********************************************************************/}}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "jmeter-service.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "jmeter-service.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}

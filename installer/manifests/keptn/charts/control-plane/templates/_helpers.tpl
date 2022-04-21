@@ -22,17 +22,6 @@ Create chart name and version as used by the chart label.
 {{- include "common.names.chart" . -}}
 {{- end }}
 
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "control-plane.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "control-plane.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
-
 {{- define "control-plane.gracePeriod" -}}
       terminationGracePeriodSeconds: 50
 {{- end }}

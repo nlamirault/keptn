@@ -21,15 +21,3 @@ Create chart name and version as used by the chart label.
 {{- define "continuous-delivery.chart" -}}
 {{- include "common.names.chart" . -}}
 {{- end }}
-
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "continuous-delivery.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "continuous-delivery.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
